@@ -1,0 +1,12 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "xiosbase": "cpp",
+        "iostream": "cpp",
+        "deque": "cpp",
+        "format": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "utility": "cpp"
+    }
+}
