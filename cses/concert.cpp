@@ -6,23 +6,24 @@ int n,m;
 void solve(){
     
     cin >> n >> m;
-    vector<int> a(n),b(n);
-    for (int i =0;i<n;i++){cin >> a[i];b[i] =a[i];}
-    sort(b.begin(),b.end());
-    vector<int> vis(n,0);
-    int cnt  =0;
-    int i =0,j=n-1;
-    while (i <=j){
-        //cout << i << " " << j << endl;
-        if (i == j){cnt ++ ; break;}
-        if (b[i]+b[j] <= m){
-            cnt++;i++;--j;
-        }
+    vector<int> a(n),b(m);
+    for (int i =0;i<n;i++){cin >> a[i];}
+    for (int i =0;i<m;i++){cin >> b[i];}
+    multiset<int> s(a.begin(),a.end());
+    vector<int> ans;
+    for (int i =0;i<m ;i++){
+        int x =b[i];
+        auto it = s.upper_bound(x);
+
+        if (it == s.begin()){ans.push_back(-1);}
         else {
-            cnt++;j--;
-        }
+            --it;
+            ans.push_back(*it); 
+            s.erase(it);
+           
+        }   
     }
-    cout << cnt <<endl;
+    for(auto an  :ans){cout << an <<"\n";}
 
 }
 
