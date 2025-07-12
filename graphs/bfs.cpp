@@ -64,7 +64,7 @@ void djisktra(int src){
         vis[x] =1;
         cout << x << " ";
         for (auto v :graph01[x]){
-            if (dis[v.first] > d + v.second()){
+            if (dis[v.first] > d + v.second){
                 dis[v.first] = d + v.second;
                 q.push({-1 * dis[v.first],v.first});
             }
