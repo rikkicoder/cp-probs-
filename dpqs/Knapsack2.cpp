@@ -4,7 +4,7 @@
 #include <algorithm>
 #define int long long
 using namespace std;
-
+const int INF = 4e18;
 void print (int i){
     if (i) cout << "YES\n";
     else cout << "NO\n";
@@ -24,14 +24,14 @@ int weigh[101],val[101];
 int dp[101][100001];
 
 int dps(int i,int tval){
-    if (i == n){return 0;}
+    if (i == n){return (tval == 0 ? 0 : INF);}
     if (dp[i][tval] != -1) return dp[i][tval];
     int ans = dps(i+1,tval);
 
     if (tval >= val[i]) ans = min(ans,weigh[i]+dps(i+1,tval-val[i]));
     
-    dp[i][tval] =ans; cout << "dp[" << i << "][" << tval << "] =" << ans <<endl;
-    return ans;    
+    return dp[i][tval] =ans; 
+        
 
 }
 
@@ -44,6 +44,7 @@ int32_t main(){
     
     int ans = 0;
     memset(dp,-1,sizeof(dp));
+
     dps(0,1e5);
     for (int i=0;i<=1e5;i++){
         if (dp[0][i] <= w) ans = max(ans,dp[0][i]);
