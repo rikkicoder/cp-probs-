@@ -25,7 +25,6 @@ int dps(int i,int sum){
     if (dp[i][sum] != -1) return dp[i][sum];
 
     int ans = dps(i+1,sum);
-
     if (sum+weigh[i] <= w){
         ans = max(ans, val[i]+dps(i+1,sum+weigh[i]));
     }

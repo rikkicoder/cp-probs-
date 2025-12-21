@@ -8,7 +8,7 @@ vector <int> vis;
 
 void dfs(int u){
     vis[u] =1;
-    for (auto v :grpah[u]){
+    for (auto v :graph[u]){
         if (!vis[v]){
             dfs(v);
         }
