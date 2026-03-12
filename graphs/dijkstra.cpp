@@ -27,8 +27,8 @@ void dijsktra(int src){
         if (vis[p.S]) continue;
         vis[p.S] =1;
         for (auto v : g[p.S]){
-            if (dist[v.F] > v.F + dist[p.S]){
-                dist[v.F] = v.F + dist[p.S];
+            if (dist[v.F] > v.S + dist[p.S]){
+                dist[v.F] = v.S + dist[p.S];
                 q.push({-dist[v.F],v.F});
             }
         }
@@ -36,6 +36,7 @@ void dijsktra(int src){
 
 
 }
+
 
 
 signed main (){

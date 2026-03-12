@@ -14,7 +14,7 @@ void bfs(int src){
     q.push(src);
     while (!q.empty()){
         int x = q.front();
-        q.pop();
+        q.pop(); 
         if (vis[x]) continue;
         vis[x] =1;
         cout << x << " ";
@@ -53,11 +53,11 @@ void bfs01(int src){
 }
 
 void djisktra(int src){
-    priority queue<pair<int,int>> q;
+    priority_queue<pair<int,int>> q;
     q.push({0,src});
     dis[src] = 0;
     while (!q.empty()){
-        int x = q.top(second);
+        int x = q.top().second;
         int d = -1 * q.top().first;
         q.pop();
         if (vis[x]) continue;
